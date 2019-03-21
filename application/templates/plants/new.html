@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<form method="POST" action="{{ url_for('plants_create') }}">
+  Kasvin nimi: <input type="text" name="name" >
+  <br />
+  Latinankielinen nimi: <input type="text" name="latin_name" >
+  <br />
+  <input type="submit" value="Lisää uusi kasvi" />
+</form>
+{% endblock %}

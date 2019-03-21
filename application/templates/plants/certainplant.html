@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h1>{{plant.name}}</h1>
+<h3>Latinankielinen nimi:</h3>
+<p>{{plant.latin_name}}</p>
+<h3>Hoito-ohjeet:</h3>
+<p>{{plant.care_instructions}}</p>
+
+<br>
+<br>
+<h4>Lisää kasville hoito-ohjeet</h4>
+<form method="POST" action="/plants/update/{{plant.id}}">
+  <input type="text" name="care_instructions"/>
+  <br>
+  <input type="submit" value="Lisää uudet ohjeet" />
+</form>
+{% endblock %}
