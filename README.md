@@ -6,7 +6,9 @@ hoito-ohjeet voidaan lisätä ja niitä muokata. Sovelluksella on myös pääkä
 käyttäjätunnuksia ja kasveja listasta. 
 
 [Kasvikanta herokussa](https://kasvikanta.herokuapp.com/)
+
 [Luokkakaavio](https://github.com/ArttuJanhunen/Kasvikanta/blob/master/documentation/Luokkakaavio_vko2.png)
+
 [Käyttötapaukset](https://github.com/ArttuJanhunen/Kasvikanta/blob/master/documentation/kayttotapaukset.md)
 
 ##  Toimintoja:
