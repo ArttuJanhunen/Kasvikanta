@@ -11,7 +11,12 @@
 <br>
 <h4>Lisää kasville hoito-ohjeet</h4>
 <form method="POST" action="/plants/update/{{plant.id}}">
-  <input type="text" name="care_instructions"/>
+  {{form.care_instructions}}
+  <ul>
+    {% for error in form.care_instructions.errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+  </ul>
   <br>
   <input type="submit" value="Lisää uudet ohjeet" />
 </form>

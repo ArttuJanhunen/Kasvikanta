@@ -2,9 +2,19 @@
 
 {% block body %}
 <form method="POST" action="{{ url_for('plants_create') }}">
-  Kasvin nimi: <input type="text" name="name" >
+  {{form.name.label}}{{form.name}}
+  <ul>
+    {% for error in form.name.errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+  </ul>
   <br />
-  Latinankielinen nimi: <input type="text" name="latin_name" >
+  {{form.latin_name.label}}{{form.latin_name}}
+  <ul>
+    {% for error in form.latin_name.errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+  </ul>
   <br />
   <input type="submit" value="Lisää uusi kasvi" />
 </form>
