@@ -7,6 +7,11 @@ käyttäjätunnuksia ja kasveja listasta.
 
 [Kasvikanta herokussa](https://kasvikanta.herokuapp.com/)
 
+Tunnukset herokussa olevaan sovellukseen:
+tunnus: user, salasana: user
+tunnus: admin, salasana: admin
+Halutessasi voit luoda uudet käyttäjätunnukset!
+
 [Luokkakaavio](https://github.com/ArttuJanhunen/Kasvikanta/blob/master/documentation/Luokkakaavio_vko2.png)
 
 [Käyttötapaukset](https://github.com/ArttuJanhunen/Kasvikanta/blob/master/documentation/kayttotapaukset.md)
