@@ -22,8 +22,11 @@ Halutessasi voit luoda uudet käyttäjätunnukset!
 ##  Toimintoja:
 
 * Kirjautuminen  
-* Kasvin lisääminen kantaan  
-* Mahdollisuus kirjata, mitä kasveja itsellä on
-* Mahdollisuus merkitä, milloin viimeksi on kastellut mitäkin kasvia.
-* Kasvin hoito-ohjeiden lisääminen ja muokkaaminen kasvin luonnin jälkeen
-* Kaikkien kasvien tarkastelu listana 
+* Kasvin lisääminen kantaan (käyttäjä)  
+* Mahdollisuus kirjata, mitä kasveja itsellä on (käyttäjä)
+* Mahdollisuus merkitä, milloin viimeksi on kastellut mitäkin kasvia (käyttäjä)
+* Kasvin hoito-ohjeiden lisääminen ja muokkaaminen kasvin luonnin jälkeen (käyttäjä)
+* Kaikkien kasvien tarkastelu listana (kuka tahansa)
+* Kasviin kuvan liittäminen ja kuvan vaihtaminen kasvin luonnin jälkeen (käyttäjä)
+* Kasvin poistaminen listasta (Admin)
+* Käyttäjän tunnusten poistaminen (Admin)
