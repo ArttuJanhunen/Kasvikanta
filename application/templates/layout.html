@@ -7,6 +7,20 @@
 </head>
 
 <body>
+  {% if current_user.is_authenticated %}
+  <p>
+    Kirjautunut nimellä {{ current_user.name }}.
+    <a href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a>
+  </p>
+  {% else %}
+  <a href="{{ url_for('auth_login') }}">Kirjaudu</a>
+  <a href="{{ url_for('new_user') }}">Rekisteröidy</a>
+  {% endif %}
+
+  {% if current_user.is_admin %}
+  <a href="{{ url_for('users_index') }}">Hallinnoi käyttäjiä</a>
+  {% endif %}
+
   <ul>
     <li><a href="{{ url_for('plants_index') }}">Kasvien lista</a></li>
     <li><a href="{{ url_for('plants_form') }}">Lisää kasvi</a></li>

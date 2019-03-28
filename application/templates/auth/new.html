@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<form method="POST" action="{{ url_for('user_create') }}">
+  {{form.name.label}}{{form.name}}
+  <ul>
+    {% for error in form.name.errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+  </ul>
+  <br />
+  {{form.username.label}}{{form.username}}
+  <ul>
+    {% for error in form.username.errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+  </ul>
+  <br />
+  {{form.password.label}}{{form.password}}
+  <ul>
+    {% for error in form.password.errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+  </ul>
+  <br />
+  <input type="submit" value="Rekisteröidy" />
+</form>
+{% endblock %}

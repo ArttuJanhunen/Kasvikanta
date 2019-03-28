@@ -12,11 +12,13 @@ class User(db.Model):
     name = db.Column(db.String(150), nullable=False)
     username = db.Column(db.String(150), nullable=False)
     password = db.Column(db.String(150), nullable=False)
+    is_admin = db.Column(db.Boolean, nullable=False)
 
-    def __init__(self, name, username, password):
+    def __init__(self, name, username, password, is_admin):
         self.name = name
         self.username = username
         self.password = password
+        self.is_admin = is_admin
 
     def get_id(self):
         return self.id
@@ -29,3 +31,6 @@ class User(db.Model):
 
     def is_authenticated(self):
         return True
+
+    def user_is_admin(self):
+        return self.is_admin
