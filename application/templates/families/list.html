@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<table>
+  <tr>
+    <th>Heimon nimi</th>
+    <th>Heimon latinankielinen nimi</th>
+  </tr>
+  {% for family in families %}
+  <tr>
+    <td>{{ family.name }}</td>
+    <td>{{ family.latin_name }}</td>
+    {% if current_user.is_admin %}
+    <td>
+      <form method="POST" action="{{url_for('family_delete', family_id=family.id)}}">
+        <input type="submit" value="Poista heimo"/>
+    </form>
+  </td>
+  {% endif %}
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

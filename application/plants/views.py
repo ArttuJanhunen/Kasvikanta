@@ -2,29 +2,37 @@ from application import app, db
 from flask import render_template, request, redirect, url_for
 from application.plants.models import Plant
 from application.plants.forms import PlantForm, PlantCareInstructionsForm, PlantImageForm
+from application.family.models import Family
 from flask_login import login_required, current_user
 
 
 @app.route("/plants", methods=["GET"])
 def plants_index():
-    return render_template("plants/list.html", plants=Plant.query.all())
+    return render_template("plants/list.html", plants=Plant.query.all(), families=Family.find_families_with_plants())
 
 
 @app.route("/plants/new/")
 @login_required
 def plants_form():
-    return render_template("/plants/new.html", form=PlantForm())
+    form = PlantForm()
+    families = Family.query.all()
+    family_list = [(family.id, family.name) for family in families]
+    form.family_id.choices = family_list
+
+    return render_template("/plants/new.html", form=form)
 
 
 @app.route("/plants/", methods=["POST"])
 @login_required
 def plants_create():
     form = PlantForm(request.form)
-
+    families = Family.query.all()
+    family_list = [(family.id, family.name) for family in families]
+    form.family_id.choices = family_list
     if not form.validate():
         return render_template("/plants/new.html", form=form)
 
-    newPlant = Plant(form.name.data, form.latin_name.data)
+    newPlant = Plant(form.name.data, form.latin_name.data, form.family_id.data)
     db.session().add(newPlant)
     db.session().commit()
 

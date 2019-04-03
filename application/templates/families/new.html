@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<form method="POST" action="{{ url_for('plants_create') }}">
+<form method="POST" action="{{ url_for('families_create') }}">
   {{form.name.label}}{{form.name}}
   <ul>
     {% for error in form.name.errors %}
@@ -16,13 +16,6 @@
     {% endfor %}
   </ul>
   <br />
-  {{form.family_id.label}}{{form.family_id}}
-  <ul>
-    {% for error in form.family_id.errors %}
-    <li>{{ error }}</li>
-    {% endfor %}
-  </ul>
-  <br/>
-  <input type="submit" value="Lisää uusi kasvi" />
+  <input type="submit" value="Lisää uusi heimo" />
 </form>
 {% endblock %}
