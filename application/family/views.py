@@ -2,6 +2,7 @@ from application import app, db
 from flask import render_template, request, redirect, url_for
 from application.family.models import Family
 from application.family.forms import FamilyForm
+from application.plants.models import Plant
 from flask_login import login_required, current_user
 
 

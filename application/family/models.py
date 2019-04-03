@@ -11,7 +11,7 @@ class Family(db.Model):
     name = db.Column(db.String(150), nullable=False)
     latin_name = db.Column(db.String(150), nullable=False)
 
-    plants = db.relationship("Plant", backref='family', lazy=True)
+    plants = db.relationship("Plant", cascade="all,delete",backref='family', lazy=True)
 
     def __init__(self, name, latin_name):
         self.name = name
