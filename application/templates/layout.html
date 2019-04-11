@@ -21,6 +21,9 @@
         <li class="nav-item"><a class="nav-link" href="{{ url_for('users_index') }}">Hallinnoi käyttäjiä</a></li>
         {% endif %}
         <li class="nav-item"><a class="nav-link" href="{{ url_for('plants_index') }}">Kasvien lista</a></li>
+        {% if current_user.is_authenticated %}
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('my_plants') }}">Omat kasvini</a></li>
+        {% endif %}
         <li class="nav-item"><a class="nav-link" href="{{ url_for('plants_form') }}">Lisää kasvi</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ url_for('families_form') }}">Lisää heimo</a></li>
         <li class="nav-item"><a class="nav-link" href="/">Etusivu</a></li>

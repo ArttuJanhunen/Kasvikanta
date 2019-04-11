@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+
+{% for plantuser in plantusers %}
+{% if plantuser.user_id==current_user.id %}
+<table>
+  <tr>
+    <th>Kasvin nimi</th>
+    <th>Latinankielinen nimi</th>
+  </tr>
+  {% for plant in plants %}
+  {% if plant.id==plantuser.plant_id %}
+  <tr>
+    <td><a href="/plants/{{plant.id}}">{{ plant.name }}</a></td>
+    <td>{{ plant.latin_name }}</td>
+  </tr>
+  {% endif %}
+  {% endfor %}
+</table>
+{% endif %}
+{% endfor %}
+
+
+{% endblock %}

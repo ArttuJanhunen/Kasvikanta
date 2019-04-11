@@ -4,11 +4,18 @@ from application.plants.models import Plant
 from application.plants.forms import PlantForm, PlantCareInstructionsForm, PlantImageForm
 from application.family.models import Family
 from flask_login import login_required, current_user
+from application.plantuser.models import PlantUser
 
 
 @app.route("/plants", methods=["GET"])
 def plants_index():
     return render_template("plants/list.html", plants=Plant.query.all(), families=Family.find_families_with_plants())
+
+
+@app.route("/myplants", methods=["GET"])
+@login_required
+def my_plants():
+    return render_template("plants/myplants.html", plants=Plant.query.all(), plantusers=PlantUser.query.all())
 
 
 @app.route("/plants/new/")
@@ -83,3 +90,17 @@ def plant_delete(plant_id):
         db.session().commit()
 
     return redirect(url_for("plants_index"))
+
+
+@app.route("/plantuser/create/", methods=["POST"])
+@login_required
+def plantuser_create():
+    plant_id = request.form.get("plant_id")
+
+    myPlant = PlantUser(current_user.id, plant_id)
+
+    if current_user.is_authenticated:
+        db.session().add(myPlant)
+        db.session().commit()
+
+    return redirect(url_for("my_plants"))

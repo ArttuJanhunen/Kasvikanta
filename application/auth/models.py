@@ -1,4 +1,5 @@
 from application import db
+from sqlalchemy import text
 
 
 class User(db.Model):
@@ -13,6 +14,9 @@ class User(db.Model):
     username = db.Column(db.String(150), nullable=False)
     password = db.Column(db.String(150), nullable=False)
     is_admin = db.Column(db.Boolean, nullable=False)
+
+    plantusers = db.relationship(
+        "PlantUser", cascade="all,delete", backref='Account', lazy=True)
 
     def __init__(self, name, username, password, is_admin):
         self.name = name
@@ -34,3 +38,4 @@ class User(db.Model):
 
     def user_is_admin(self):
         return self.is_admin
+

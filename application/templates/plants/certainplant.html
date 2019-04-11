@@ -11,6 +11,14 @@
 
 <br>
 <br>
+
+<form method="POST" action="{{url_for('plantuser_create')}}">
+  <input type="hidden" name="plant_id" value="{{plant.id}}"/>
+  <input type="submit" value="Lisää kasvi omiin kasveihin" />
+</form>
+
+<br>
+<br>
 <h4>Lisää kasville hoito-ohjeet</h4>
 <form method="POST" action="/plants/update/{{plant.id}}">
   {{form.care_instructions}}
