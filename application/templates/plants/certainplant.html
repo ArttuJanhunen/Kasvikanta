@@ -6,17 +6,12 @@
 <p>Alkuperäinen kuva: {{plant.plant_image}}</p>
 <h3>Latinankielinen nimi:</h3>
 <p>{{plant.latin_name}}</p>
-<h3>Hoito-ohjeet:</h3>
-<p>{{plant.care_instructions}}</p>
-
-<br>
-<br>
-
 <form method="POST" action="{{url_for('plantuser_create')}}">
-  <input type="hidden" name="plant_id" value="{{plant.id}}"/>
+  <input type="hidden" name="plant_id" value="{{plant.id}}" />
   <input type="submit" value="Lisää kasvi omiin kasveihin" />
 </form>
-
+<h3>Hoito-ohjeet:</h3>
+<p>{{plant.care_instructions}}</p>
 <br>
 <br>
 <h4>Lisää kasville hoito-ohjeet</h4>
