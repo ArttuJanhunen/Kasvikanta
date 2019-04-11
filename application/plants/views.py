@@ -104,3 +104,14 @@ def plantuser_create():
         db.session().commit()
 
     return redirect(url_for("my_plants"))
+
+@app.route("/plantuser/delete/<plantuser_id>", methods=["POST"])
+@login_required
+def plantuser_delete(plantuser_id):
+    certainMyPlant = PlantUser.query.get(plantuser_id)
+
+    if current_user.is_authenticated:
+        db.session().delete(certainMyPlant)
+        db.session().commit()
+
+    return redirect(url_for("my_plants"))
