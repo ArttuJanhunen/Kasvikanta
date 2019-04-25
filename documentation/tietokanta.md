@@ -1,3 +1,5 @@
+![Kaavio](https://github.com/ArttuJanhunen/Kasvikanta/blob/master/documentation/Tietokantakaavio.png)
+
 ## CREATE TABLE-lauseet:
 
 Family:

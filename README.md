@@ -15,9 +15,13 @@ tunnus: admin, salasana: admin
 
 Halutessasi voit luoda uudet käyttäjätunnukset!
 
-[Tietokantakaavio](https://github.com/ArttuJanhunen/Kasvikanta/blob/master/documentation/Tietokantakaavio.png)
+[Tietokantakaavio ja luontilauseet](https://github.com/ArttuJanhunen/Kasvikanta/blob/master/documentation/tietokanta.md)
 
 [Käyttötapaukset](https://github.com/ArttuJanhunen/Kasvikanta/blob/master/documentation/kayttotapaukset.md)
+
+[Asennusohjeet](https://github.com/ArttuJanhunen/Kasvikanta/blob/master/documentation/asennusohje.md)
+
+[Käyttöohjeet](https://github.com/ArttuJanhunen/Kasvikanta/blob/master/documentation/kayttoohje.md)
 
 ##  Toimintoja:
 
