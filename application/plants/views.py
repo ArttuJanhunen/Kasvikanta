@@ -5,6 +5,7 @@ from application.plants.forms import PlantForm, PlantCareInstructionsForm, Plant
 from application.family.models import Family
 from flask_login import login_required, current_user
 from application.plantuser.models import PlantUser
+import time
 
 
 @app.route("/plants", methods=["GET"])
@@ -105,6 +106,7 @@ def plantuser_create():
 
     return redirect(url_for("my_plants"))
 
+
 @app.route("/plantuser/delete/<plantuser_id>", methods=["POST"])
 @login_required
 def plantuser_delete(plantuser_id):
@@ -112,6 +114,20 @@ def plantuser_delete(plantuser_id):
 
     if current_user.is_authenticated:
         db.session().delete(certainMyPlant)
+        db.session().commit()
+
+    return redirect(url_for("my_plants"))
+
+
+@app.route("/plantuser/update/<plantuser_id>", methods=["POST"])
+@login_required
+def plantuser_update(plantuser_id):
+    certainMyPlant = PlantUser.query.get(plantuser_id)
+
+    currentTime = str(time.strftime("%d/%m/%Y"))
+
+    if current_user.is_authenticated:
+        certainMyPlant.date_watered = currentTime
         db.session().commit()
 
     return redirect(url_for("my_plants"))

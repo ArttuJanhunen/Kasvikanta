@@ -9,12 +9,21 @@
   <tr>
     <th>Kasvin nimi</th>
     <th>Latinankielinen nimi</th>
+    <th>Kasvia on kasteltu</th>
   </tr>
   {% for plant in plants %}
   {% if plant.id==plantuser.plant_id %}
   <tr>
     <td><a href="/plants/{{plant.id}}">{{ plant.name }}</a></td>
     <td>{{ plant.latin_name }}</td>
+    <td>{{ plantuser.date_watered }}</td>
+  </tr>
+  <tr>
+    <td>
+      <form method="POST" action="{{url_for('plantuser_update', plantuser_id=plantuser.id)}}">
+        <input type="submit" value="Kastele kasvi">
+      </form>
+    </td>
     <td>
       <form method="POST" action="{{url_for('plantuser_delete', plantuser_id=plantuser.id)}}">
         <input type="submit" value="Poista kasvi omasta listasta" />

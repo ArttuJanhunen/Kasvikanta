@@ -6,14 +6,17 @@
 <p>Alkuperäinen kuva: {{plant.plant_image}}</p>
 <h3>Latinankielinen nimi:</h3>
 <p>{{plant.latin_name}}</p>
+{% if current_user.is_authenticated %}
 <form method="POST" action="{{url_for('plantuser_create')}}">
   <input type="hidden" name="plant_id" value="{{plant.id}}" />
   <input type="submit" value="Lisää kasvi omiin kasveihin" />
 </form>
+{% endif %}
 <h3>Hoito-ohjeet:</h3>
 <p>{{plant.care_instructions}}</p>
 <br>
 <br>
+{% if current_user.is_authenticated %}
 <h4>Lisää kasville hoito-ohjeet</h4>
 <form method="POST" action="/plants/update/{{plant.id}}">
   {{form.care_instructions}}
@@ -25,13 +28,16 @@
   <br>
   <input type="submit" value="Lisää uudet ohjeet" />
 </form>
+{% endif %}
 
+{% if current_user.is_authenticated %}
 <h4>Lisää kasville kuva</h4>
 <form method="POST" action="/plants/updateimg/{{plant.id}}">
   <input type="text" name="plant_image" />
   <br>
   <input type="submit" value="Lisää kuvan url" />
 </form>
+{% endif %}
 
 <p>HUOM: Sovelluksen kuvat ovat käyttäjien lisäämiä</p>
 {% endblock %}

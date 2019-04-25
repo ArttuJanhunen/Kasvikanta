@@ -11,9 +11,12 @@ class LoginForm(FlaskForm):
 
 
 class NewUserForm(FlaskForm):
-    name = StringField("Nimi:")
-    username = StringField("Käyttäjätunnus:", [validators.Length(min=3)])
-    password = PasswordField("Salasana:", [validators.Length(min=3)])
+    name = StringField("Nimi:", [validators.Length(
+        min=3), validators.Length(max=150)])
+    username = StringField("Käyttäjätunnus:", [
+                           validators.Length(min=3), validators.Length(max=150)])
+    password = PasswordField(
+        "Salasana:", [validators.Length(min=3), validators.Length(max=150)])
 
     class Meta:
         csrf = False

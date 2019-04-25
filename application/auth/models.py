@@ -38,4 +38,3 @@ class User(db.Model):
 
     def user_is_admin(self):
         return self.is_admin
-
