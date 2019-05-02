@@ -34,7 +34,7 @@ def new_user():
     return render_template("/auth/new.html", form=NewUserForm())
 
 
-@app.route("/users/", methods=["POST"])
+@app.route("/users/new", methods=["POST"])
 def user_create():
     form = NewUserForm(request.form)
 
