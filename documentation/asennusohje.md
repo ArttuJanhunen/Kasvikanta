@@ -3,7 +3,7 @@
 * kirjoita terminaaliin 'python3 -m venv venv'
 * kirjoita terminaaliin 'source venv/bin/activate'
 * kirjoita terminaaliin 'pip install -r requirements.txt'
-* sovellus käynnistyy terminaaliin kirjoitella käskyllä 'python3 runPlants.py'
+* sovellus käynnistyy terminaaliin kirjoitetulla käskyllä 'python3 runPlants.py'
 * käynnistä selain ja kirjoita sivuksi 'http://localhost:5000/'
 * Voila!
 
