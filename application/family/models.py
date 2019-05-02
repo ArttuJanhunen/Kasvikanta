@@ -23,7 +23,8 @@ class Family(db.Model):
         stmt = text("SELECT Family.id, Family.name FROM Family"
                     " LEFT JOIN Plant ON Plant.family_id = Family.id"
                     " GROUP BY Family.id"
-                    " HAVING COUNT(Plant.id)>0")
+                    " HAVING COUNT(Plant.id)>0"
+                    " ORDER BY Family.name")
         res = db.engine.execute(stmt)
         response = []
         for row in res:

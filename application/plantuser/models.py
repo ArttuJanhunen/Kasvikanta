@@ -1,4 +1,5 @@
 from application import db
+from sqlalchemy import text
 
 
 class PlantUser(db.Model):
@@ -15,3 +16,18 @@ class PlantUser(db.Model):
         self.user_id = user_id
         self.plant_id = plant_id
         self.date_watered = "Kasvia ei vielä ole kasteltu"
+
+    @staticmethod
+    def amount_of_plants_for_user():
+        stmt = text (
+            "SELECT Account.id, COUNT (*) FROM Account, plant_user"
+            " WHERE Account.id = plant_user.user_id"
+            " GROUP BY Account.id"
+        )
+
+        res = db.engine.execute(stmt)
+        response = []
+        for row in res:
+            response.append({"id": row[0], "amount": row[1]})
+        
+        return response

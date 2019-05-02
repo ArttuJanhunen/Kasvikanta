@@ -17,7 +17,7 @@ def plants_index():
 @login_required
 def my_plants():
     if current_user.is_authenticated:
-        return render_template("plants/myplants.html", plants=Plant.query.all(), plantusers=PlantUser.query.all())
+        return render_template("plants/myplants.html", plants=Plant.query.all(), plantusers=PlantUser.query.all(), amounts=PlantUser.amount_of_plants_for_user())
     else: return render_template(url_for("index"))
 
 @app.route("/plants/new/")

@@ -2,6 +2,16 @@
 
 {% block body %}
 
+<p><b>Hei {{ current_user.name }}, tällä sivulla näet omat kasvisi!</b></p>
+{% for myamount in amounts %}
+{% if myamount.id==current_user.id %}
+{% if myamount.amount ==1 %}
+<p><b>Sinulla on {{myamount.amount}} oma kasvi!</b></p>
+{% else %}
+<p><b>Sinulla on {{myamount.amount}} omaa kasvia!</b></p>
+{% endif %}
+{% endif %}
+{% endfor %}
 
 {% for plantuser in plantusers %}
 {% if plantuser.user_id==current_user.id %}
