@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, url_for
-from flask_login import login_user, logout_user, current_user
+from flask_login import login_user, logout_user, current_user, login_required
 
 from application import app, db
 from application.auth.models import User
@@ -50,6 +50,7 @@ def user_create():
 
 
 @app.route("/users/", methods=["GET"])
+@login_required
 def users_index():
 
     if current_user.is_admin:
