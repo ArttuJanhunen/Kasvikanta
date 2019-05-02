@@ -8,7 +8,7 @@ class PlantUser(db.Model):
     date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(
     ), onupdate=db.func.current_timestamp())
 
-    user_id = db.Column(db.Integer, db.ForeignKey('Account.id', ondelete='CASCADE'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('account.id', ondelete='CASCADE'), nullable=False)
     plant_id = db.Column(db.Integer, db.ForeignKey('plant.id', ondelete='CASCADE'), nullable=False)
     date_watered = db.Column(db.String(50), nullable=True)
 
@@ -20,9 +20,9 @@ class PlantUser(db.Model):
     @staticmethod
     def amount_of_plants_for_user():
         stmt = text (
-            "SELECT Account.id, COUNT (*) FROM Account, plant_user"
-            " WHERE Account.id = plant_user.user_id"
-            " GROUP BY Account.id"
+            "SELECT account.id, COUNT (*) FROM account, plant_user"
+            " WHERE account.id = plant_user.user_id"
+            " GROUP BY account.id"
         )
 
         res = db.engine.execute(stmt)

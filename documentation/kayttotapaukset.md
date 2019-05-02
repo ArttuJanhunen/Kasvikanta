@@ -27,7 +27,7 @@ UPDATE Plant SET plant_image='haluttuUrl' WHERE id=haluttuId;
 
 * Voin halutessani rekisteröityä sivulle 
 ```sql
-INSERT INTO Account(name, username, password, is_admin) VALUES('haluttuNimi', 'haluttuKäyttäjätunnus', 'haluttuSalasana', false);
+INSERT INTO account(name, username, password, is_admin) VALUES('haluttuNimi', 'haluttuKäyttäjätunnus', 'haluttuSalasana', false);
 ```
 
 * Admin-oikeuksien avulla pääkäyttäjänä voin tehdä samoja asioita kuin tavallinenkin käyttäjä,
@@ -36,5 +36,5 @@ mutta minulla on myös valtuudet poistaa kasveja ja hallinnoida muiden käyttäj
 DELETE FROM Plant WHERE id=haluttuId;
 ```
 ```sql
-DELETE FROM Account WHERE id=haluttuId;
+DELETE FROM account WHERE id=haluttuId;
 ```

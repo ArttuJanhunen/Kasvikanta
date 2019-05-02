@@ -3,7 +3,7 @@ from sqlalchemy import text
 
 
 class User(db.Model):
-    __tablename__ = "Account"
+    __tablename__ = "account"
 
     id = db.Column(db.Integer, primary_key=True)
     date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
@@ -16,7 +16,7 @@ class User(db.Model):
     is_admin = db.Column(db.Boolean, nullable=False)
 
     plantusers = db.relationship(
-        "PlantUser", cascade="all,delete", backref='Account', lazy=True)
+        "PlantUser", cascade="all,delete", backref='account', lazy=True)
 
     def __init__(self, name, username, password, is_admin):
         self.name = name

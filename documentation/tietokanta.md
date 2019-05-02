@@ -13,7 +13,7 @@ CREATE TABLE family (
 );
 
 User:
-CREATE TABLE IF NOT EXISTS "Account" (
+CREATE TABLE IF NOT EXISTS "account" (
 	id INTEGER NOT NULL, 
 	date_created DATETIME, 
 	date_modified DATETIME, 
@@ -48,7 +48,7 @@ CREATE TABLE plant_user (
 	plant_id INTEGER NOT NULL, 
 	date_watered VARCHAR(50), 
 	PRIMARY KEY (id), 
-	FOREIGN KEY(user_id) REFERENCES "Account" (id) ON DELETE CASCADE, 
+	FOREIGN KEY(user_id) REFERENCES "account" (id) ON DELETE CASCADE, 
 	FOREIGN KEY(plant_id) REFERENCES plant (id) ON DELETE CASCADE
 );
 
