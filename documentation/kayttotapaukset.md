@@ -7,7 +7,7 @@ SELECT Family.id, Family.name FROM Family
 LEFT JOIN Plant ON Plant.family_id = Family.id
 GROUP BY Family.id
 HAVING COUNT(Plant.id)>0
-ORDER BY Family.name
+ORDER BY Family.name;
 ```
 
 * Sivulla vierailevana henkilönä voin tarkastella erilaisten kasvien tietoja 
