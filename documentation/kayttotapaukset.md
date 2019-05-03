@@ -1,15 +1,13 @@
 * Huolimattomana ja hajamielisenä henkilönä haluan, että voin tarkistaa kasvieni nimet ja viimeisimmän
 kastelupäivän
 
-* Kasviharrastajana haluan listata mahdollisimman paljon kasveja ja taata niille hoito-ohjeita muitakin
-varten 
-```sql
-SELECT * FROM Plant;
-```
-
 * Uteliaana haluan nähdä, mihin eri pääheimoihin kasvit voidaan yleisesti jakaa 
 ```sql
-SELECT * FROM Family;
+SELECT Family.id, Family.name FROM Family
+LEFT JOIN Plant ON Plant.family_id = Family.id
+GROUP BY Family.id
+HAVING COUNT(Plant.id)>0
+ORDER BY Family.name
 ```
 
 * Sivulla vierailevana henkilönä voin tarkastella erilaisten kasvien tietoja 
@@ -18,6 +16,9 @@ SELECT FROM Plant WHERE Plant.id=halutunKasvinId;
 ```
 
 * Käyttäjänä voin lisätä kasveja listaan, liittää niihin hoito-ohjeita ja valokuvan 
+```sql
+INSERT INTO Plant(name, latin_name, family_id) VALUES(kasvinNimi, kasvinLatinankielinenNimi, valitunHeimonId);
+```
 ```sql
 UPDATE Plant SET care_instructions='halutut ohjeet' WHERE id=haluttuId;
 ```
