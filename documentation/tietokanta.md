@@ -3,6 +3,7 @@
 ## CREATE TABLE-lauseet:
 
 Family:
+```sql
 CREATE TABLE family (
 	id INTEGER NOT NULL, 
 	date_created DATETIME, 
@@ -11,8 +12,9 @@ CREATE TABLE family (
 	latin_name VARCHAR(150) NOT NULL, 
 	PRIMARY KEY (id)
 );
-
+```
 User:
+```sql
 CREATE TABLE IF NOT EXISTS "account" (
 	id INTEGER NOT NULL, 
 	date_created DATETIME, 
@@ -24,8 +26,9 @@ CREATE TABLE IF NOT EXISTS "account" (
 	PRIMARY KEY (id), 
 	CHECK (is_admin IN (0, 1))
 );
-
+```
 Plant:
+```sql
 CREATE TABLE plant (
 	id INTEGER NOT NULL, 
 	date_created DATETIME, 
@@ -38,8 +41,9 @@ CREATE TABLE plant (
 	PRIMARY KEY (id), 
 	FOREIGN KEY(family_id) REFERENCES family (id) ON DELETE CASCADE
 );
-
+```
 Liitostaulu PlantUser:
+```sql
 CREATE TABLE plant_user (
 	id INTEGER NOT NULL, 
 	date_created DATETIME, 
@@ -51,4 +55,4 @@ CREATE TABLE plant_user (
 	FOREIGN KEY(user_id) REFERENCES "account" (id) ON DELETE CASCADE, 
 	FOREIGN KEY(plant_id) REFERENCES plant (id) ON DELETE CASCADE
 );
-
+```
