@@ -15,7 +15,7 @@ CREATE TABLE family (
 ```
 User:
 ```sql
-CREATE TABLE IF NOT EXISTS "account" (
+CREATE TABLE account (
 	id INTEGER NOT NULL, 
 	date_created DATETIME, 
 	date_modified DATETIME, 
